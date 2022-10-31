@@ -1,9 +1,10 @@
 package com.signup.service.signupService.repository;
 
 import com.signup.service.signupService.model.User;
-import com.sun.corba.se.spi.ior.ObjectId;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-public interface UserRepository  extends JpaRepository<User, ObjectId> {
+@RepositoryRestResource
+public interface UserRepository extends JpaRepository<User,Integer> {
 
 }

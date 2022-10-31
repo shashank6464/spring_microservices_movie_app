@@ -12,9 +12,7 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class SignupServiceApplication implements CommandLineRunner {
 
-	public SignupServiceApplication(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SignupServiceApplication.class, args);
@@ -22,11 +20,15 @@ public class SignupServiceApplication implements CommandLineRunner {
 
 	private final UserRepository userRepository;
 
+
+	public SignupServiceApplication(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
 	@Override
 	public void run(String... args) throws Exception {
-		AtomicInteger i = new AtomicInteger(1);
-		Stream.of("Alice", "Bob", "Carol").forEach((user) -> userRepository.save(new User(i.getAndIncrement(),user)));
+		//AtomicInteger i = new AtomicInteger(1);
+		Stream.of("Alice", "Bob","Carol").forEach((user) -> userRepository.save(new User(user)));
 		userRepository.findAll().forEach(System.out::println);
-
 	}
 }
