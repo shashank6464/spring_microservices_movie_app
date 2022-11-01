@@ -27,8 +27,11 @@ public class SignupServiceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		//AtomicInteger i = new AtomicInteger(1);
-		Stream.of("Alice", "Bob","Carol").forEach((user) -> userRepository.save(new User(user)));
+
+		userRepository.save(new User("Mohit","mohit@gmail.com","12345"));
+		userRepository.save(new User("Mohan","mohan@gmail.com","12345"));
+		userRepository.save(new User("Raju","raju@gmail.com","12345"));
+
 		userRepository.findAll().forEach(System.out::println);
 	}
 }

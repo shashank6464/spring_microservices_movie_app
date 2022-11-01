@@ -1,13 +1,8 @@
 package com.signup.service.signupService.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.bson.types.ObjectId;
 import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,12 +22,12 @@ public class User {
     private int id;
 
     private String name;
+    private String email;
+    private String password;
 
-    public User(String name){
+    public User(String name, String email, String password) {
         this.name = name;
+        this.email = email;
+        this.password = password;
     }
-//    private String email;
-//    private String password;
-
-
 }
